@@ -128,7 +128,7 @@ public class ServerMain  implements ActionListener {
         frame.setVisible(true);
     }
     private void createTable() throws SQLException {
-        String createTableSQL = "CREATE TABLE IF NOT EXISTS messages1(" +
+        String createTableSQL = "CREATE TABLE IF NOT EXISTS messages(" +
                 "id INT AUTO_INCREMENT PRIMARY KEY," +
                 " Sender VARCHAR(30)," +
                 "message VARCHAR(255) NOT NULL," +
