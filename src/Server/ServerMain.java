@@ -41,7 +41,7 @@ public class ServerMain  implements ActionListener {
         JLabel back = new JLabel(i3);
         back.setBounds(5, 20, 25,25);
         p1.add(back);
-
+     //when clicked chatbox will be closed
         back.addMouseListener(new MouseAdapter(){
             public void mouseClicked(MouseEvent ae){
                 frame.setVisible(false);
@@ -59,7 +59,6 @@ public class ServerMain  implements ActionListener {
         ImageIcon i7= new ImageIcon(ClassLoader.getSystemResource("CHatapppicture/video.png"));
         Image i8 = i7.getImage().getScaledInstance(30,30,Image.SCALE_AREA_AVERAGING);
         ImageIcon i9 = new ImageIcon(i8);
-
         JLabel video = new JLabel(i9);
         video.setBounds(300, 20, 30,30);
         p1.add(video);
@@ -94,6 +93,7 @@ public class ServerMain  implements ActionListener {
         statusDot.setForeground(new Color(37, 211, 102));
         statusDot.setFont(new Font("SAN_SERIF", Font.BOLD, 13));
         statusPanel.add(statusDot);
+        //active now
         JLabel status = new JLabel("Active Now");
         status.setForeground(Color.WHITE);
         status.setFont(new Font("SAN_SERIF", Font.BOLD, 13));
@@ -124,9 +124,9 @@ public class ServerMain  implements ActionListener {
         frame.setLocation(200,50);
         frame.setUndecorated(true);
         frame.getContentPane().setBackground(Color.WHITE);
-
         frame.setVisible(true);
     }
+    //without use of sql we can create the table in the database 
     private void createTable() throws SQLException {
         String createTableSQL = "CREATE TABLE IF NOT EXISTS messages(" +
                 "id INT AUTO_INCREMENT PRIMARY KEY," +
@@ -168,6 +168,7 @@ public class ServerMain  implements ActionListener {
             e.printStackTrace();
         }
     }
+    //saving the messages such that table consist sender name  messaegcontent and timesatmp
     private static void saveMessageToDatabase(String sender,String message) {
         String sql = "INSERT INTO messages(sender,message, timestamp) VALUES (?,?, NOW())";
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
